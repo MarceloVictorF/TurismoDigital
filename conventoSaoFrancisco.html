@@ -1,143 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Convento de São Francisco - Turismo Digital Capixaba</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <!-- FontAwesome para ícones de redes sociais -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-  <!-- Estilos personalizados -->
-  <style>
-    body {
-      background-color: #f0f8ff; /* Azul claro */
-      color: #333; /* Cor do texto */
-      padding-bottom: 50px; /* Espaço extra para o rodapé */
-    }
-    .jumbotron {
-      background-color: #007bff; /* Azul */
-      color: white;
-    }
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      padding-top: 30px;
-      height: 0;
-      overflow: hidden;
-    }
-    .video-container iframe, .video-container object, .video-container embed {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    footer {
-      background-color: #343a40; /* Cinza escuro */
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
-    footer a {
-      color: #ffc107; /* Amarelo */
-      text-decoration: none;
-    }
-    footer a:hover {
-      color: #fff;
-    }
-    .social-icons i {
-      font-size: 24px;
-      margin: 0 10px;
-      color: #ffc107; /* Amarelo */
-      transition: color 0.3s;
-    }
-    .social-icons i:hover {
-      color: #fff;
-    }
-    h2 {
-      color: #007bff; /* Azul */
-    }
-    .btn-next {
-      background-color: #28a745; /* Verde */
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-    .btn-next:hover {
-      background-color: #218838;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <!-- Inclui o cabeçalho -->
+  <div id="header-placeholder"></div>
 
-<div class="container mt-5">
-  <!-- Slide de Título -->
-  <div class="jumbotron text-center">
-    <h1>Convento de São Francisco</h1>
-    <p>Explore a história e a arquitetura deste monumento histórico</p>
-  </div>
+  <div class="container mt-5">
 
-  <!-- Vídeo e Descrição do Convento de São Francisco -->
-  <div class="row mb-5">
-    <div class="col-md-8 offset-md-2">
-      <div class="video-container">
-        <!-- Vídeo 360º -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/sFnK_nG0_BA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <p class="mt-4 text-justify">O <strong>Convento de São Francisco</strong>, localizado em <strong>Vitória, Espírito Santo, Brasil</strong>, é uma das construções franciscanas mais antigas do país, datando do século XVI. Situado no centro histórico de Vitória, o convento é um importante marco da arquitetura colonial brasileira. Fundado em 1591, o Convento de São Francisco é conhecido por sua rica história e influência cultural na região.</p>
-      <p class="mt-4 text-justify">O convento abriga uma igreja e várias estruturas anexas que testemunham séculos de história e fé. Sua arquitetura, com elementos barrocos e coloniais, oferece um ambiente de serenidade e contemplação, atraindo tanto turistas quanto fiéis que buscam um lugar de paz e reflexão.</p>
-      <div class="text-center mt-4">
-        <!-- Botões de Compartilhamento -->
-        <a href="#" class="btn btn-primary mr-2" aria-label="Compartilhar no Facebook"><i class="fab fa-facebook-f"></i> Compartilhar no Facebook</a>
-        <a href="#" class="btn btn-info" aria-label="Compartilhar no Twitter"><i class="fab fa-twitter"></i> Compartilhar no Twitter</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Rodapé -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h5>Contato</h5>
-        <p><a href="mailto:mvfbarbosa99@hotmail.com">mvfbarbosa99@hotmail.com</a></p>
-        <p><a href="tel:+552795107776">(27) 9 9510-7776</a></p>
-      </div>
-      <div class="col-md-4">
-        <h5>Links Úteis</h5>
-        <ul class="list-unstyled">
-          <li><a href="/">Início</a></li>
-          <li><a href="sobre.html">Sobre</a></li>
-          <li><a href="convento.html">Convento Da Penha</a></li>
-          <li><a href="casaDaMemoria.html">Casa da Memória</a></li>
-          <li><a href="igrejaReisMagos.html">Igreja dos Reis Magos</a></li>
-          <li><a href="conventoSaoFrancisco.html">Convento de São Francisco</a></li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <h5>Redes Sociais</h5>
-        <div class="social-icons">
-          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <!-- Vídeo e Descrição do Convento de São Francisco -->
+    <div class="row mb-5">
+      <div class="col-md-10 offset-md-1">
+        <div class="video-container text-center">
+          <!-- Vídeo 360º -->
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/sFnK_nG0_BA" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p class="mt-4 text-justify">O <strong>Convento de São Francisco</strong>, localizado em <strong>Vitória,
+            Espírito Santo, Brasil</strong>, é uma das construções franciscanas mais antigas do país, datando do século
+          XVI. Situado no centro histórico de Vitória, o convento é um importante marco da arquitetura colonial
+          brasileira. Fundado em 1591, o Convento de São Francisco é conhecido por sua rica história e influência
+          cultural na região.</p>
+        <p class="mt-4 text-justify">O convento abriga uma igreja e várias estruturas anexas que testemunham séculos de
+          história e fé. Sua arquitetura, com elementos barrocos e coloniais, oferece um ambiente de serenidade e
+          contemplação, atraindo tanto turistas quanto fiéis que buscam um lugar de paz e reflexão.</p>
+        <div class="text-center mt-4">
+          <!-- Botões de Compartilhamento -->
+          <a href="#" class="btn btn-primary mr-2" aria-label="Compartilhar no Facebook"><i
+              class="fab fa-facebook-f"></i> Compartilhar no Facebook</a>
+          <a href="#" class="btn btn-info" aria-label="Compartilhar no Twitter"><i class="fab fa-twitter"></i>
+            Compartilhar no Twitter</a>
         </div>
       </div>
     </div>
-    <div class="row mt-3">
-      <div class="col-md-12">
-        <p>© 2024 Turismo Digital Capixaba</p>
-      </div>
-    </div>
   </div>
-</footer>
 
-<!-- Bootstrap JavaScript e dependências -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Local onde o rodapé será inserido -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Inclui os scripts -->
+  <script src="script.js"></script>
 </body>
+
 </html>
