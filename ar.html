@@ -1,0 +1,124 @@
+'<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Visualização AR</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/controls/OrbitControls.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #viewer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #viewer {
+            z-index: 1;
+        }
+
+        #video {
+            z-index: 0;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div id="viewer"></div>
+    <video id="video" autoplay></video>
+
+    <!-- Bibliotecas JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r92/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r92/examples/js/controls/OrbitControls.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Seleciona o elemento do viewer
+        const viewer = document.getElementById('viewer');
+        const video = document.getElementById('video');
+
+        // Configura a cena
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        viewer.appendChild(renderer.domElement);
+
+        // Adiciona luzes à cena
+        const ambientLight = new THREE.AmbientLight(0x404040, 2); // Luz ambiente suave
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(0, 1, 1).normalize();
+        scene.add(directionalLight);
+
+        const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+        pointLight.position.set(0, 0, 2);
+        scene.add(pointLight);
+
+        // Controles de rotação
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.update();
+
+        // Extrai o nome do modelo da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const model = urlParams.get('model');
+
+        // Carrega o modelo STL
+        const loader = new THREE.STLLoader();
+        loader.load(model, function (geometry) {
+            const material = new THREE.MeshPhongMaterial({ color: 0x808080 });
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.rotation.set(0, 0, 0);
+            mesh.scale.set(0.1, 0.1, 0.1); // Ajusta a escala do modelo
+            scene.add(mesh);
+
+            // Centraliza o modelo
+            const boundingBox = new THREE.Box3().setFromObject(mesh);
+            const center = boundingBox.getCenter(new THREE.Vector3());
+            mesh.position.x -= center.x;
+            mesh.position.y -= center.y;
+            mesh.position.z -= center.z;
+
+            camera.position.z = 2;
+            animate();
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        // Ativa a câmera
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+                video.srcObject = stream;
+                video.play();
+            });
+        }
+    </script>
+</body>
+
+</html>

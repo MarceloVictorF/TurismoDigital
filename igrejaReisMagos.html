@@ -2,7 +2,11 @@
 <html lang="pt-br">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Igreja dos Reis Magos - Turismo Digital Capixaba</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,18 +15,22 @@
   <div id="header-placeholder"></div>
 
   <div class="container mt-5">
+    <!-- Título Principal -->
+    <h1 class="text-center mb-4">Igreja dos Reis Magos</h1>
 
     <!-- Vídeo e Descrição da Igreja dos Reis Magos -->
-    <div class="row mb-3">
-      <div class="col-md-10 offset-md-1">
+    <div class="row mb-5">
+      <div class="col-12 col-md-10 offset-md-1">
         <div class="video-container text-center">
           <!-- Vídeo 360º -->
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/efB23kqxYH8" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/efB23kqxYH8"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
         </div>
-        <p class="mt-5 text-justify">A <strong>Igreja dos Reis Magos</strong>, localizada em <strong>Nova Almeida,
+        <p class="mt-4 text-justify">A <strong>Igreja dos Reis Magos</strong>, localizada em <strong>Nova Almeida,
             Serra, Espírito Santo, Brasil</strong>, é uma das mais importantes representações da arquitetura jesuítica
           no Brasil. Concluída em 1580, a igreja foi tombada pelo IPHAN e recentemente restaurada, preservando seu
           estilo original. Esta igreja é um marco histórico e cultural, refletindo a rica herança religiosa e
@@ -31,12 +39,45 @@
           que oferece aos visitantes uma vista privilegiada da orla e uma oportunidade de mergulhar na história do
           Espírito Santo. Suas estruturas barrocas e coloniais proporcionam um ambiente de contemplação e paz, atraindo
           turistas e fiéis.</p>
-        <div class="text-center mt-4">
-          <!-- Botões de Compartilhamento -->
-          <a href="#" class="btn btn-primary mr-2" aria-label="Compartilhar no Facebook"><i
-              class="fab fa-facebook-f"></i> Compartilhar no Facebook</a>
-          <a href="#" class="btn btn-info" aria-label="Compartilhar no Twitter"><i class="fab fa-twitter"></i>
-            Compartilhar no Twitter</a>
+      </div>
+    </div>
+
+    <!-- Galeria de Tour Virtual -->
+    <h2 class="text-center mb-4">Tour Virtual</h2>
+    <div class="row mb-5">
+      <div class="col-12 col-sm-6 col-md-4">
+        <img src="#" alt="Vista da Igreja" class="img-fluid turismo-img">
+        <figcaption class="figcaption">Vista da Igreja</figcaption>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4">
+        <img src="#" alt="Interior da Igreja" class="img-fluid turismo-img">
+        <figcaption class="figcaption">Interior da Igreja</figcaption>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4">
+        <img src="#" alt="Paisagem ao Redor" class="img-fluid turismo-img">
+        <figcaption class="figcaption">Paisagem ao Redor</figcaption>
+      </div>
+    </div>
+
+    <!-- Atividades na Igreja -->
+    <h2 class="text-center mb-4">Atividades</h2>
+    <div class="row mb-5 text-center activity-icon">
+      <div class="col-6 col-md-2">
+        <div class="activity-icon">
+          <i class="fas fa-church fa-3x"></i>
+          <p class="mt-2">Missas</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-2">
+        <div class="activity-icon">
+          <i class="fas fa-landmark fa-3x"></i>
+          <p class="mt-2">Museu</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-2">
+        <div class="activity-icon">
+          <i class="fas fa-binoculars fa-3x"></i>
+          <p class="mt-2">Mirante</p>
         </div>
       </div>
     </div>
@@ -46,6 +87,9 @@
   <div id="footer-placeholder"></div>
 
   <!-- Inclui os scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="script.js"></script>
 </body>
 

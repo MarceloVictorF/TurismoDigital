@@ -2,7 +2,11 @@
 <html lang="pt-br">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Convento da Penha - Turismo Digital Capixaba</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,16 +15,20 @@
   <div id="header-placeholder"></div>
 
   <div class="container mt-5">
+    <!-- Título Principal -->
+    <h1 class="text-center mb-4">Convento da Penha</h1>
 
     <!-- Vídeo e Descrição do Convento da Penha -->
     <div class="row mb-5">
-      <div class="col-md-10 offset-md-1">
+      <div class="col-12 col-md-10 offset-md-1">
         <div class="video-container text-center">
           <!-- Vídeo 360º -->
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/a434yO6YTVk" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/a434yO6YTVk"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
         </div>
         <p class="mt-4 text-justify">O <strong>Convento da Penha</strong>, localizado em <strong>Vila Velha, Espírito
             Santo, Brasil</strong>, é um dos mais antigos e icônicos santuários religiosos do país. Erguido no alto de
@@ -31,12 +39,61 @@
             Penha</strong>, padroeira do estado. Além de seu profundo valor espiritual, o convento é um marco
           arquitetônico, com uma igreja em estilo colonial que irradia serenidade e convida à contemplação e à reflexão.
         </p>
-        <div class="text-center mt-4">
-          <!-- Botões de Compartilhamento -->
-          <a href="#" class="btn btn-primary mr-2" aria-label="Compartilhar no Facebook"><i
-              class="fab fa-facebook-f"></i> Compartilhar no Facebook</a>
-          <a href="#" class="btn btn-info" aria-label="Compartilhar no Twitter"><i class="fab fa-twitter"></i>
-            Compartilhar no Twitter</a>
+      </div>
+    </div>
+
+    <!-- Galeria de Tour Virtual -->
+    <h2 class="text-center mb-4">Tour Virtual</h2>
+    <div class="row mb-5">
+      <div class="col-12 col-sm-6 col-md-4">
+        <img src="#"
+          alt="Vista do Convento" class="img-fluid turismo-img">
+        <figcaption class="figcaption">Vista do Convento</figcaption>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4">
+        <img src="#"
+          alt="Interior do Convento" class="img-fluid turismo-img">
+        <figcaption class="figcaption">Interior do Convento</figcaption>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4">
+        <img src="#"
+          alt="Paisagem ao Redor" class="img-fluid turismo-img">
+        <figcaption class="figcaption">Paisagem ao redor</figcaption>
+      </div>
+    </div>
+
+
+    <!-- Atividades no Convento -->
+    <h2 class="text-center mb-4">Atividades</h2>
+    <div class="row mb-5 text-center">
+      <div class="col-6 col-md-2 offset-md-1">
+        <div class="activity-icon">
+          <i class="fas fa-map-marked-alt fa-3x"></i>
+          <p class="mt-2">Visita Guiada</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-2">
+        <div class="activity-icon">
+          <i class="fas fa-church fa-3x"></i>
+          <p class="mt-2">Missas</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-2">
+        <div class="activity-icon">
+          <i class="fas fa-hiking fa-3x"></i>
+          <p class="mt-2">Trilha</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-2">
+        <div class="activity-icon">
+          <i class="fas fa-landmark fa-3x"></i>
+          <p class="mt-2">Museu</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-2">
+        <div class="activity-icon">
+          <i class="fas fa-binoculars fa-3x"></i>
+          <p class="mt-2">Mirante</p>
         </div>
       </div>
     </div>
@@ -46,6 +103,9 @@
   <div id="footer-placeholder"></div>
 
   <!-- Inclui os scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="script.js"></script>
 </body>
 

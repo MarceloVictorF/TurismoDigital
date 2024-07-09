@@ -9,14 +9,104 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome para ícones de redes sociais -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <!-- Estilos personalizados -->
     <style>
-        #viewer {
-            position: relative;
+        body {
+            background-color: #f0f8ff;
+            /* Azul claro */
+            color: #333;
+            /* Cor do texto */
+            padding-bottom: 50px;
+            /* Espaço extra para o rodapé */
+        }
+
+        .jumbotron {
+            background-color: #007bff;
+            /* Azul */
+            color: white;
+        }
+
+        .turismo-img {
             width: 100%;
-            height: 500px;
-            /* Ajuste a altura conforme necessário */
-            background-color: #000;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .turismo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .figcaption {
+            text-align: center;
+            font-size: 1.1em;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        footer {
+            background-color: #343a40;
+            /* Cinza escuro */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ffc107;
+            /* Amarelo */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        .social-icons i {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #ffc107;
+            /* Amarelo */
+            transition: color 0.3s;
+        }
+
+        .social-icons i:hover {
+            color: #fff;
+        }
+
+        h2 {
+            color: #007bff;
+            /* Azul */
+        }
+
+        .btn-next {
+            background-color: #28a745;
+            /* Verde */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-next:hover {
+            background-color: #218838;
+        }
+
+        #ar-button {
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        #viewer {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
         }
 
         #video {
@@ -25,33 +115,34 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 2;
+            z-index: -1;
         }
     </style>
 </head>
 
 <body>
-    <!-- Inclui o cabeçalho -->
-    <div id="header-placeholder"></div>
 
-    <!-- Slide de Introdução -->
-    <div class="row mb-5">
-        <div class="col-md-12 text-center mt-5">
-            <button id="ar-button" class="btn btn-primary">Convento Virtual</button>
+    <div class="container mt-5">
+        <!-- Slide de Título -->
+        <div class="jumbotron text-center">
+            <h1>Aplicação de Realidade Aumentada</h1>
+            <p>Explorando o Patrimônio Cultural do Espírito Santo</p>
         </div>
-    </div>
 
-    <!-- Visualizador de AR -->
-    <div id="viewer">
-        <video id="video" autoplay></video>
+        <!-- Slide de Introdução -->
+        <div class="row mb-5">
+            <div class="col-md-12 text-center">
+                <h2>Sejam bem-vindos!</h2>
+                <p>Descubra os pontos turísticos do Espírito Santo através da nossa aplicação de realidade aumentada.
+                </p>
+                <button id="ar-button" class="btn btn-primary">Convento Virtual</button>
+            </div>
+        </div>
+
+        <!-- Visualizador de AR -->
+        <div id="viewer">
+            <video id="video" autoplay></video>
+        </div>
     </div>
 
     <!-- Local onde o rodapé será inserido -->
@@ -62,8 +153,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.rawgit.com/mrdoob/three.js/r92/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r92/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdn.rawgit.com/mrdoob/three.js/r92/examples/js/controls/OrbitControls.js"></script>
+    <script src="script.js"></script>
 
     <!-- Script para Realidade Aumentada -->
     <script>
@@ -93,25 +185,17 @@
 
             // Controles de rotação
             const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.25;
+            controls.enableZoom = true;
             controls.update();
 
-            // Carrega o modelo OBJ e aplica materiais
-            const loader = new THREE.OBJLoader();
-            loader.load('convento.obj', function (object) {
-                object.traverse(function (child) {
-                    if (child instanceof THREE.Mesh) {
-                        // Aplica diferentes materiais com base no nome do objeto
-                        if (child.name.includes('stone')) {
-                            child.material = new THREE.MeshPhongMaterial({ color: 0x808080 }); // Pedra cinza
-                        } else if (child.name.includes('roof')) {
-                            child.material = new THREE.MeshPhongMaterial({ color: 0xA52A2A }); // Telhado cor de telha de barro
-                        } else {
-                            child.material = new THREE.MeshPhongMaterial({ color: 0xFFFFFF }); // Paredes externas brancas
-                        }
-                    }
-                });
+            // Carrega o modelo GLB
+            const loader = new THREE.GLTFLoader();
+            loader.load('convento.glb', function (gltf) {
+                const object = gltf.scene;
 
-                object.scale.set(0.0004, 0.0004, 0.0004); // Ajusta a escala do modelo
+                object.scale.set(0.1, 0.1, 0.1); // Ajusta a escala do modelo
                 scene.add(object);
 
                 // Centraliza o modelo
@@ -121,8 +205,10 @@
                 object.position.y -= center.y;
                 object.position.z -= center.z;
 
-                camera.position.z = 2;
+                camera.position.set(0, 1, 2); // Ajusta a posição da câmera
+                controls.target.set(center.x, center.y, center.z);
                 controls.update();
+
                 animate();
             });
 
@@ -141,7 +227,7 @@
             }
         });
     </script>
-    <script src="script.js"></script>
+
 </body>
 
 </html>

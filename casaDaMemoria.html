@@ -1,28 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Casa da Memória - Turismo Digital Capixaba</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <!-- Inclui o cabeçalho -->
   <div id="header-placeholder"></div>
 
   <div class="container mt-5">
+    <!-- Título Principal -->
+    <h1 class="text-center mb-4">Casa da Memória</h1>
 
     <!-- Vídeo e Descrição da Casa da Memória -->
     <div class="row mb-5">
-      <div class="col-md-10 offset-md-1">
+      <div class="col-12 col-md-10 offset-md-1">
         <div class="video-container text-center">
           <!-- Vídeo 360º -->
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/3ySIBVWKGmU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/3ySIBVWKGmU"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
         </div>
-        <p class="mt-4 text-justify">A <strong>Casa da Memória</strong>, localizada em <strong>Vila Velha, Espírito Santo, Brasil</strong>, é uma edificação histórica que remonta ao final do século XIX. Situada no sítio histórico da Prainha, a casa é um museu etnográfico que preserva e exibe a rica história cultural da região. Construída em 1893, a Casa da Memória foi restaurada e inaugurada como museu em 1994.</p>
-        <p class="mt-4 text-justify">O museu abriga uma vasta coleção de artefatos e documentos que narram a evolução histórica e cultural de Vila Velha e seus habitantes. Através de exposições permanentes e temporárias, a Casa da Memória oferece aos visitantes uma imersão na vida e nas tradições do povo capixaba.</p>
-        <div class="text-center mt-4">
-          <!-- Botões de Compartilhamento -->
-          <a href="#" class="btn btn-primary mr-2" aria-label="Compartilhar no Facebook"><i class="fab fa-facebook-f"></i> Compartilhar no Facebook</a>
-          <a href="#" class="btn btn-info" aria-label="Compartilhar no Twitter"><i class="fab fa-twitter"></i> Compartilhar no Twitter</a>
+        <p class="mt-4 text-justify">A <strong>Casa da Memória</strong>, localizada em <strong>Vila Velha, Espírito
+            Santo, Brasil</strong>, é uma edificação histórica que remonta ao final do século XIX. Situada no sítio
+          histórico da Prainha, a casa é um museu etnográfico que preserva e exibe a rica história cultural da região.
+          Construída em 1893, a Casa da Memória foi restaurada e inaugurada como museu em 1994.</p>
+        <p class="mt-4 text-justify">O museu abriga uma vasta coleção de artefatos e documentos que narram a evolução
+          histórica e cultural de Vila Velha e seus habitantes. Através de exposições permanentes e temporárias, a Casa
+          da Memória oferece aos visitantes uma imersão na vida e nas tradições do povo capixaba.</p>
+      </div>
+    </div>
+
+    <!-- Galeria de Itens de Realidade Aumentada -->
+    <h2 class="text-center mb-4">Tour Virtual</h2>
+    <div class="row mb-5">
+      <div class="col-12 col-sm-6 col-md-4">
+        <img src="item1.jpg" alt="Item 1" class="img-fluid turismo-img" onclick="openAR('francisco.stl')">
+        <figcaption class="figcaption text-center">Item 1</figcaption>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4">
+        <img src="item2.jpg" alt="Item 2" class="img-fluid turismo-img" onclick="openAR('model2.stl')">
+        <figcaption class="figcaption text-center">Item 2</figcaption>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4">
+        <img src="item3.jpg" alt="Item 3" class="img-fluid turismo-img" onclick="openAR('model3.stl')">
+        <figcaption class="figcaption text-center">Item 3</figcaption>
+      </div>
+    </div>
+
+    <!-- Atividades na Igreja -->
+    <h2 class="text-center mb-4">Atividades</h2>
+    <div class="row mb-5 text-center activity-icon">
+      <div class="col-6 col-md-2">
+        <div class="activity-icon">
+          <i class="fas fa-landmark fa-3x"></i>
+          <p class="mt-2">Museu</p>
         </div>
       </div>
     </div>
@@ -32,6 +73,10 @@
   <div id="footer-placeholder"></div>
 
   <!-- Inclui os scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>

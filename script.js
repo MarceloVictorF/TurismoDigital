@@ -13,3 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("footer-placeholder").innerHTML = data;
     });
 });
+
+function openAR(model) {
+  // Abre uma nova janela com a visualização do modelo em AR
+  window.open(`ar.html?model=${model}`, "_blank");
+}
