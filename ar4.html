@@ -1,0 +1,11 @@
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<!-- we import arjs version without NFT but with marker + location based support -->
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+<a-scene embedded arjs>
+    <a-marker type="pattern"
+        url="https://github.com/MarceloVictorF/TurismoDigital/blob/81506a419789c077936caaf48f7685b4ba4f0477/R.patt">
+        <a-sphere radius="1" color="#EF2D5E"></a-sphere>
+    </a-marker>
+    <a-entity camera></a-entity>
+</a-scene>
