@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+
 </head>
 
 <body>
@@ -298,8 +300,8 @@
     <h2 class="text-center mb-4">Tour Virtual</h2>
     <div class="row mb-5">
       <div class="col-12 col-sm-6 col-md-4">
-        <img src="#" alt="Vista do Convento" class="img-fluid turismo-img">
-        <figcaption class="figcaption">Vista do Convento</figcaption>
+        <div id="panorama" style="width: 100%; height: 500px;"></div>
+        <p class="text-center">Vista do Convento</p>
       </div>
       <div class="col-12 col-sm-6 col-md-4">
         <img src="#" alt="Interior do Convento" class="img-fluid turismo-img">
@@ -347,10 +349,89 @@
     </div>
   </div>
 
+  <audio id="garrafa" src="garrafa.mp3"></audio>
+
+  <audio id="cadeira" src="cadeira.ogg"></audio>
+
   <!-- Local onde o rodapé será inserido -->
   <div id="footer-placeholder"></div>
 
+
   <!-- Inclui os scripts -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+  <script>
+    pannellum.viewer('panorama', {
+      "type": "equirectangular",
+      "panorama": "sala.jpg",
+      "autoLoad": true,
+      "autoRotate": -2,
+      "hotSpots": [
+        {
+          "pitch": 3,
+          "yaw": 0,
+          "type": "custom",
+          "createTooltipFunc": criarPopup,
+          "createTooltipArgs": {
+            "content": "A televisão é usada para assistir programas, filmes e séries."
+          }
+        },
+        {
+          "pitch": 25,
+          "yaw": 30,
+          "type": "custom",
+          "createTooltipFunc": criarPopup,
+          "createTooltipArgs": {
+            "content": "A porta é usada para acesso a locais."
+          }
+        },
+        {
+          "pitch": 0,  // Posição vertical
+          "yaw": -30,   // Posição horizontal
+          "type": "info",
+          "text": "Garrafa",
+          "clickHandlerFunc": function () {
+            var audio = document.getElementById('garrafa');
+            audio.play();  // Reproduz o áudio
+          }
+        },
+        {
+          "pitch": 0,  // Posição vertical
+          "yaw": -20,   // Posição horizontal
+          "type": "info",
+          "text": "Garrafa",
+          "clickHandlerFunc": function () {
+            var audio = document.getElementById('cadeira');
+            audio.play();  // Reproduz o áudio
+          }
+        }
+      ]
+    });
+
+    // Função que cria a popup dentro da imagem 360
+    function criarPopup(hotSpotDiv, args) {
+      hotSpotDiv.classList.add('custom-tooltip');
+
+      var popup = document.createElement('div');
+      popup.className = 'popup';
+      popup.innerHTML = '<p>' + args.content + '</p><button class="fechar-btn">Fechar</button>';
+      hotSpotDiv.appendChild(popup);
+
+      // Torna a popup visível quando o usuário clica no hotspot
+      hotSpotDiv.addEventListener('click', function () {
+        var allPopups = document.querySelectorAll('.popup');
+        allPopups.forEach(function (p) { p.style.display = 'none'; }); // Fecha todas as popups abertas
+        popup.style.display = 'block'; // Abre a popup do hotspot clicado
+      });
+
+      // Função para fechar a popup quando o botão for clicado
+      popup.querySelector('.fechar-btn').addEventListener('click', function (event) {
+        event.stopPropagation(); // Evita o clique de fechar abrir novamente a popup
+        popup.style.display = 'none'; // Esconde a popup
+      });
+    }
+  </script>
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
