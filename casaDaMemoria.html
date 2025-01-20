@@ -45,16 +45,16 @@
     <h2 class="text-center mb-4">Tour Virtual</h2>
     <div class="row mb-5">
       <div class="col-12 col-sm-6 col-md-4">
-        <div id="panorama" style="width: 100%; height: 500px;"></div>
+        <div id="casaDaMemoria1" style="width: 100%; height: 500px;"></div>
         <p class="text-center">Sala 1</p>
       </div>
       <div class="col-12 col-sm-6 col-md-4">
-        <img src="#" alt="Interior do Convento" class="img-fluid turismo-img">
-        <figcaption class="figcaption">Interior do Convento</figcaption>
+        <div id="casaDaMemoria2" style="width: 100%; height: 500px;"></div>
+        <p class="text-center">Sala 2</p>
       </div>
       <div class="col-12 col-sm-6 col-md-4">
-        <img src="#" alt="Paisagem ao Redor" class="img-fluid turismo-img">
-        <figcaption class="figcaption">Paisagem ao redor</figcaption>
+        <div id="casaDaMemoria3" style="width: 100%; height: 500px;"></div>
+        <p class="text-center">Sala 3</p>
       </div>
     </div>
 
@@ -82,7 +82,87 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
   
   <script>
-    pannellum.viewer('panorama', {
+    pannellum.viewer('casaDaMemoria1', {
+      "type": "equirectangular",
+      "panorama": "casaDaMemoria2.jpg",
+      "autoLoad": true,
+      "autoRotate": -2,
+      "hotSpots": [
+        {
+          "pitch": 8,
+          "yaw": -22,
+          "type": "custom",
+          "createTooltipFunc": criarPopup,
+          "createTooltipArgs": {
+            "content": ""
+          }
+        },
+        {
+          "pitch": 8,
+          "yaw": -6,
+          "type": "custom",
+          "createTooltipFunc": criarPopup,
+          "createTooltipArgs": {
+            "content": ""
+          }
+        },
+        {
+          "pitch": 8,
+          "yaw": 4,
+          "type": "custom",
+          "createTooltipFunc": criarPopup,
+          "createTooltipArgs": {
+            "content": "A televisão é usada para assistir programas, filmes e séries."
+          }
+        },
+        {
+          "pitch": 8,
+          "yaw": 10,
+          "type": "custom",
+          "createTooltipFunc": criarPopup,
+          "createTooltipArgs": {
+            "content": "A televisão é usada para assistir programas, filmes e séries."
+          }
+        },
+        {
+          "pitch": -16,
+          "yaw": -22,
+          "type": "custom",
+          "createTooltipFunc": criarPopup,
+          "createTooltipArgs": {
+            "content": ""
+          }
+        },
+        {
+          "pitch": -16,
+          "yaw": -12,
+          "type": "custom",
+          "createTooltipFunc": criarPopup,
+          "createTooltipArgs": {
+            "content": ""
+          }
+        },
+        {
+          "pitch": -16,
+          "yaw": 4,
+          "type": "custom",
+          "createTooltipFunc": criarPopup,
+          "createTooltipArgs": {
+            "content": "A televisão é usada para assistir programas, filmes e séries."
+          }
+        },
+        {
+          "pitch": -36,
+          "yaw": -22,
+          "type": "custom",
+          "createTooltipFunc": criarPopup,
+          "createTooltipArgs": {
+            "content": "A televisão é usada para assistir programas, filmes e séries."
+          }
+        }
+      ]
+    });
+    pannellum.viewer('casaDaMemoria2', {
       "type": "equirectangular",
       "panorama": "casaDaMemoria1.jpg",
       "autoLoad": true,
@@ -94,26 +174,7 @@
           "type": "custom",
           "createTooltipFunc": criarPopup,
           "createTooltipArgs": {
-            "content": "A televisão é usada para assistir programas, filmes e séries."
-          }
-        },
-        {
-          "pitch": 25,
-          "yaw": 30,
-          "type": "custom",
-          "createTooltipFunc": criarPopup,
-          "createTooltipArgs": {
-            "content": "A porta é usada para acesso a locais."
-          }
-        },
-        {
-          "pitch": 0,  // Posição vertical
-          "yaw": -30,   // Posição horizontal
-          "type": "info",
-          "text": "Garrafa",
-          "clickHandlerFunc": function () {
-            var audio = document.getElementById('garrafa');
-            audio.play();  // Reproduz o áudio
+            "content": "Abra ab ac."
           }
         },
         {
@@ -122,7 +183,34 @@
           "type": "info",
           "text": "Garrafa",
           "clickHandlerFunc": function () {
-            var audio = document.getElementById('cadeira');
+            var audio = document.getElementById('tapete');
+            audio.play();  // Reproduz o áudio
+          }
+        }
+      ]
+    });
+    pannellum.viewer('casaDaMemoria3', {
+      "type": "equirectangular",
+      "panorama": "casaDaMemoria4.jpg",
+      "autoLoad": true,
+      "autoRotate": -2,
+      "hotSpots": [
+        {
+          "pitch": 3,
+          "yaw": 0,
+          "type": "custom",
+          "createTooltipFunc": criarPopup,
+          "createTooltipArgs": {
+            "content": "Abra ab ac."
+          }
+        },
+        {
+          "pitch": 0,  // Posição vertical
+          "yaw": -20,   // Posição horizontal
+          "type": "info",
+          "text": "Garrafa",
+          "clickHandlerFunc": function () {
+            var audio = document.getElementById('tapete');
             audio.play();  // Reproduz o áudio
           }
         }
